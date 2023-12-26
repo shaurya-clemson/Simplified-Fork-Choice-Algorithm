@@ -15,3 +15,5 @@ For the sake of simplicity, the following assumptions are made:
 | Validator ID   | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
 | -------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deposit Amount | 500 | 100 | 300 | 250 | 150 | 500 | 600 | 350 | 200 | 150 |
+
+2. The checkpoint tree is already given.
