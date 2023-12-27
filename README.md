@@ -17,3 +17,4 @@ For the sake of simplicity, the following assumptions are made:
 | Deposit Amount | 500 | 100 | 300 | 250 | 150 | 500 | 600 | 350 | 200 | 150 |
 
 2. The checkpoint tree is already given.
+3. The checkpoint tree is a full binary tree.
