@@ -2,6 +2,8 @@
 
 Problem Statement:
 
+### Description
+
 We will implement a “modified” PoS-based voting algorithm. The original
 Casper FFG consists of two layers:
 
@@ -18,3 +20,5 @@ For the sake of simplicity, the following assumptions are made:
 
 2. The checkpoint tree is already given.
 3. The checkpoint tree is a full binary tree.
+4. Each node/checkpoint in the checkpoint tree has a number associated with it. Given a
+   node of number n, its left child is 2n + 1, and its right child is 2n + 2. The root node is labeled 0.
