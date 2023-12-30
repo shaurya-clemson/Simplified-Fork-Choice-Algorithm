@@ -22,3 +22,6 @@ For the sake of simplicity, the following assumptions are made:
 3. The checkpoint tree is a full binary tree.
 4. Each node/checkpoint in the checkpoint tree has a number associated with it. Given a
    node of number n, its left child is 2n + 1, and its right child is 2n + 2. The root node is labeled 0.
+5. The length of the link contained in each vote is always 1. This means a validator cannot skip any checkpoint in its vote, i.e., the target of the link is either the left child or the
+right child of the source. (Note: in the real Casper FFG, a vote can skip some checkpoints. An example is given on page 27 of the slides, where link b2 → b3 skips two
+checkpoints.)
