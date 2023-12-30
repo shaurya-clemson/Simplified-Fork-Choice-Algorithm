@@ -25,3 +25,6 @@ For the sake of simplicity, the following assumptions are made:
 5. The length of the link contained in each vote is always 1. This means a validator cannot skip any checkpoint in its vote, i.e., the target of the link is either the left child or the
 right child of the source. (Note: in the real Casper FFG, a vote can skip some checkpoints. An example is given on page 27 of the slides, where link b2 → b3 skips two
 checkpoints.)
+6. For each vote, the probability of selecting the left child as the target is the same as the probability of selecting the right child.
+7. If the sum of the deposits of the validators voting for a link L exceeds 1/2 of the total deposit, L is the supermajority link. (Note: this is different from the 2/3 rule used in
+real Casper FFG.)
