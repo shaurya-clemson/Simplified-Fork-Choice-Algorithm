@@ -28,3 +28,5 @@ checkpoints.)
 6. For each vote, the probability of selecting the left child as the target is the same as the probability of selecting the right child.
 7. If the sum of the deposits of the validators voting for a link L exceeds 1/2 of the total deposit, L is the supermajority link. (Note: this is different from the 2/3 rule used in
 real Casper FFG.)
+
+In our program, starting from the genesis node, we will run the Proof-of-Stake (PoS)-based voting 10 rounds, which yields 10 supermajority links.
