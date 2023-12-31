@@ -30,3 +30,9 @@ checkpoints.)
 real Casper FFG.)
 
 In our program, starting from the genesis node, we will run the Proof-of-Stake (PoS)-based voting 10 rounds, which yields 10 supermajority links.
+
+### Output
+
+* The blockchain formed by the 10 supermajority links, which is a list of the
+node/checkpoint numbers; and
+* The IDs of the validators who finalized each checkpoint.
