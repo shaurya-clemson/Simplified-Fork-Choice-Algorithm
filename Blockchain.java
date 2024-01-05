@@ -12,3 +12,12 @@ public class Blockchain {
         addChildren(root, 0, depth);
         return root;
     }
+    
+    private static void addChildren(Node node, int currentDepth, int maxDepth) {
+        if (currentDepth < maxDepth) {
+            node.left = new Node(node.number * 2 + 1);
+            node.right = new Node(node.number * 2 + 2);
+            addChildren(node.left, currentDepth + 1, maxDepth);
+            addChildren(node.right, currentDepth + 1, maxDepth);
+        }
+    }
