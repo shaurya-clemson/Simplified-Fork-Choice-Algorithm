@@ -21,3 +21,7 @@ public class Blockchain {
             addChildren(node.right, currentDepth + 1, maxDepth);
         }
     }
+
+    private static Map.Entry<Node, Set<Integer>> superMajorityLink(List<Validator> validators, Node current_node, int totalDeposit) {
+        Map<Node, Set<Integer>> validatorVotes = Voting(validators, current_node);
+        int supermajorityThreshold = totalDeposit / 2;
