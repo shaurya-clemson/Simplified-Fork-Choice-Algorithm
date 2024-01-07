@@ -25,3 +25,12 @@ public class Blockchain {
     private static Map.Entry<Node, Set<Integer>> superMajorityLink(List<Validator> validators, Node current_node, int totalDeposit) {
         Map<Node, Set<Integer>> validatorVotes = Voting(validators, current_node);
         int supermajorityThreshold = totalDeposit / 2;
+        
+        for (Map.Entry<Node, Set<Integer>> entry : validatorVotes.entrySet()) {
+            int totalVotes = entry.getValue().stream().mapToInt(id -> validators.get(id).deposit).sum();
+            if (totalVotes > supermajorityThreshold) {
+                return entry;
+            }
+        }
+        return null;
+    }
