@@ -34,3 +34,8 @@ public class Blockchain {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+        // Constants
+        final int NUM_VALIDATORS = 10;
+        final int[] DEPOSITS = {500, 100, 300, 250, 150, 500, 600, 350, 200, 150};
