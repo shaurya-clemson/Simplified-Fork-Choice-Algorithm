@@ -39,3 +39,11 @@ public class Blockchain {
         // Constants
         final int NUM_VALIDATORS = 10;
         final int[] DEPOSITS = {500, 100, 300, 250, 150, 500, 600, 350, 200, 150};
+        
+        // Initialize validators
+        List<Validator> validators = new ArrayList<>();
+        int totalDeposit = 0;
+        for (int i = 0; i < NUM_VALIDATORS; i++) {
+            validators.add(new Validator(i, DEPOSITS[i]));
+            totalDeposit += DEPOSITS[i];
+        }
