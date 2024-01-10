@@ -51,4 +51,9 @@ public class Blockchain {
         // Building a binary tree of depth 10
         Node checkpointTree = buildTree(10);
 
+        // Simulating the voting process and tracking validators who finalized each checkpoint
+        Map<Integer, Set<Integer>> finalizingValidatorsByCheckpoint = new HashMap<>();
+        Node current_node = checkpointTree;
+        List<Integer> blockchain = new ArrayList<>();
+
 
