@@ -47,3 +47,8 @@ public class Blockchain {
             validators.add(new Validator(i, DEPOSITS[i]));
             totalDeposit += DEPOSITS[i];
         }
+
+        // Building a binary tree of depth 10
+        Node checkpointTree = buildTree(10);
+
+
