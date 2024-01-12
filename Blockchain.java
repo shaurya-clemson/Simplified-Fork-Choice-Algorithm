@@ -55,7 +55,16 @@ public class Blockchain {
         Map<Integer, Set<Integer>> finalizingValidatorsByCheckpoint = new HashMap<>();
         Node current_node = checkpointTree;
         List<Integer> blockchain = new ArrayList<>();
+
         for (int i = 0; i < 10; i++) { // Simulating 10 rounds
             Map.Entry<Node, Set<Integer>> supermajorityLink = superMajorityLink(validators, current_node, totalDeposit);
+            if (supermajorityLink != null) {
+                current_node = supermajorityLink.getKey();
+                blockchain.add(current_node.number);
+                finalizingValidatorsByCheckpoint.put(current_node.number, supermajorityLink.getValue());
+            } else {
+                break;
+            }
+        }
 
 
