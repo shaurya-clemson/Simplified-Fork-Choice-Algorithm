@@ -67,4 +67,7 @@ public class Blockchain {
             }
         }
 
+        // Priting the completed blockchain
+        System.out.println("Congratulations! Your blockchain is complete.\nBlockchain: " + blockchain);
+
 
