@@ -72,4 +72,9 @@ public class Blockchain {
 
         System.out.println("\nHere are all the validators that validated each checkpoint:");
 
+        for (Map.Entry<Integer, Set<Integer>> entry : finalizingValidatorsByCheckpoint.entrySet()) {
+            System.out.println("Checkpoint: " + entry.getKey() + ", Validators: " + entry.getValue());
+        }
 
+    }
+}
