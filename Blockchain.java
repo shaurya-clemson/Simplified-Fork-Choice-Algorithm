@@ -70,4 +70,6 @@ public class Blockchain {
         // Priting the completed blockchain
         System.out.println("Congratulations! Your blockchain is complete.\nBlockchain: " + blockchain);
 
+        System.out.println("\nHere are all the validators that validated each checkpoint:");
+
 
