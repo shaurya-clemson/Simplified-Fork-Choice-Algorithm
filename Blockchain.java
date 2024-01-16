@@ -12,7 +12,7 @@ public class Blockchain {
         addChildren(root, 0, depth);
         return root;
     }
-    
+
     private static void addChildren(Node node, int currentDepth, int maxDepth) {
         if (currentDepth < maxDepth) {
             node.left = new Node(node.number * 2 + 1);
@@ -22,10 +22,21 @@ public class Blockchain {
         }
     }
 
+    private static Map<Node, Set<Integer>> Voting(List<Validator> validators, Node current_node) {
+        Map<Node, Integer> votes = new HashMap<>();
+        Map<Node, Set<Integer>> validatorVotes = new HashMap<>();
+        for (Validator validator : validators) {
+            Node target = validator.vote(current_node);
+            votes.put(target, votes.getOrDefault(target, 0) + validator.deposit);
+            validatorVotes.computeIfAbsent(target, k -> new HashSet<>()).add(validator.id);
+        }
+        return validatorVotes;
+    }
+
     private static Map.Entry<Node, Set<Integer>> superMajorityLink(List<Validator> validators, Node current_node, int totalDeposit) {
         Map<Node, Set<Integer>> validatorVotes = Voting(validators, current_node);
         int supermajorityThreshold = totalDeposit / 2;
-        
+
         for (Map.Entry<Node, Set<Integer>> entry : validatorVotes.entrySet()) {
             int totalVotes = entry.getValue().stream().mapToInt(id -> validators.get(id).deposit).sum();
             if (totalVotes > supermajorityThreshold) {
@@ -39,7 +50,7 @@ public class Blockchain {
         // Constants
         final int NUM_VALIDATORS = 10;
         final int[] DEPOSITS = {500, 100, 300, 250, 150, 500, 600, 350, 200, 150};
-        
+
         // Initialize validators
         List<Validator> validators = new ArrayList<>();
         int totalDeposit = 0;
@@ -55,7 +66,6 @@ public class Blockchain {
         Map<Integer, Set<Integer>> finalizingValidatorsByCheckpoint = new HashMap<>();
         Node current_node = checkpointTree;
         List<Integer> blockchain = new ArrayList<>();
-
         for (int i = 0; i < 10; i++) { // Simulating 10 rounds
             Map.Entry<Node, Set<Integer>> supermajorityLink = superMajorityLink(validators, current_node, totalDeposit);
             if (supermajorityLink != null) {
